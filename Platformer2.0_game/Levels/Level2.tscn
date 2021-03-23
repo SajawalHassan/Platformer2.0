@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://start-assets/background.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://Gameplay/Teleportal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Gameplay/Death.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Gameplay/GroundDeath.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Level2.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 438.118, 37.5383 )
 
 [node name="Level2" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 208, 400 )
@@ -47,7 +49,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Ground"]
-position = Vector2( 1592, 416 )
+position = Vector2( 1600, 416 )
 scale = Vector2( 0.28, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -62,7 +64,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Ground"]
-position = Vector2( 2040, 352 )
+position = Vector2( 2360, 352 )
 scale = Vector2( 0.28, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -79,7 +81,7 @@ shape = SubResource( 1 )
 [node name="Teleportals" type="Node" parent="."]
 
 [node name="TeleportalEnd" parent="Teleportals" instance=ExtResource( 4 )]
-position = Vector2( 2100.75, 206.433 )
+position = Vector2( 2448, 160 )
 
 [node name="TeleportalStart" parent="Teleportals" instance=ExtResource( 4 )]
 position = Vector2( 80, 352 )
@@ -87,12 +89,19 @@ position = Vector2( 80, 352 )
 [node name="Death" type="Node" parent="."]
 
 [node name="GroundDeath" parent="Death" instance=ExtResource( 6 )]
-position = Vector2( 615.882, 426.832 )
+position = Vector2( 575.882, 426.832 )
+
+[node name="GroundDeath2" parent="Death" instance=ExtResource( 6 )]
+position = Vector2( 520, 426.832 )
 
 [node name="Death" parent="Death" instance=ExtResource( 5 )]
 position = Vector2( 1360, 424 )
 
 [node name="RetryDetector" parent="." instance=ExtResource( 3 )]
 position = Vector2( 504, 832 )
+scale = Vector2( 1.37067, 0.478399 )
+[connection signal="body_entered" from="Teleportals/TeleportalEnd" to="Player" method="_on_TeleportalEnd_body_entered"]
 [connection signal="body_entered" from="Death/GroundDeath" to="Player" method="_on_GroundDeath_body_entered"]
+[connection signal="body_entered" from="Death/GroundDeath2" to="Player" method="_on_GroundDeath_body_entered"]
+[connection signal="body_entered" from="Death/Death" to="Player" method="_on_Death_body_entered"]
 [connection signal="body_entered" from="RetryDetector" to="Player" method="_on_RetryDetector_body_entered"]

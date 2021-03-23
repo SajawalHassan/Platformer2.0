@@ -44,19 +44,35 @@ texture = ExtResource( 3 )
 position = Vector2( 0, -4.20447 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Ground"]
-position = Vector2( 1752, 288 )
+[node name="StaticBody2D5" type="StaticBody2D" parent="Ground"]
+position = Vector2( 864, 352 )
 scale = Vector2( 0.286294, 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D3"]
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D5"]
 position = Vector2( -0.0830688, -0.852539 )
 scale = Vector2( 0.335917, 0.0667252 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D5"]
+position = Vector2( 0, -4.20447 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1824, 96 )
+scale = Vector2( 0.286294, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D6"]
+position = Vector2( -0.0830688, -0.852539 )
+scale = Vector2( 0.335917, 0.0667252 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D6"]
 position = Vector2( 0, -4.20447 )
 shape = SubResource( 1 )
 
@@ -77,13 +93,14 @@ position = Vector2( 0, -4.20447 )
 shape = SubResource( 1 )
 
 [node name="Teleportal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1797.51, 148.357 )
+position = Vector2( 2240, 32 )
 
 [node name="Death" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1079.03, 349.255 )
 
 [node name="RetryDetector" parent="." instance=ExtResource( 5 )]
 position = Vector2( 490.981, 740.322 )
+scale = Vector2( 1.52, 1 )
 [connection signal="body_entered" from="Teleportal" to="Player" method="_on_Teleportal_body_entered"]
 [connection signal="body_entered" from="Death" to="Player" method="_on_Death_body_entered"]
 [connection signal="body_entered" from="RetryDetector" to="Player" method="_on_RetryDetector_body_entered"]

@@ -21,7 +21,7 @@ func _physics_process(delta) -> void:
 		if jump_count < 1:
 			jump_count += 1
 			motion.y = -500
-			
+
 	if is_on_floor():
 		jump_count = 0
 		
@@ -42,3 +42,13 @@ func _on_RetryDetector_body_entered(body: Node) -> void:
 func _on_GroundDeath_body_entered(body: Node) -> void:
 	get_tree().change_scene("res://Gameplay/GameOver.tscn")
 
+
+func _on_TeleportalEnd_body_entered(body: Node) -> void:
+	get_tree().change_scene("res://Levels/Level3.tscn")
+
+func _on_GroundDeath2_body_entered(body: Node) -> void:
+	pass # Replace with function body.
+
+
+func _on_GroundDeath3_body_entered(body: Node) -> void:
+	pass # Replace with function body.
