@@ -14,8 +14,8 @@ extents = Vector2( 360, 40 )
 [node name="Level3" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 1016, 484 )
-scale = Vector2( 0.934176, 0.348905 )
+position = Vector2( 1408.89, 484 )
+scale = Vector2( 1.13738, 0.348905 )
 texture = ExtResource( 7 )
 
 [node name="Ground" type="Node" parent="."]
@@ -143,12 +143,13 @@ position = Vector2( 712, 432 )
 [node name="GroundDeath3" parent="Death" instance=ExtResource( 4 )]
 position = Vector2( 680, 384 )
 
-[node name="RetryDetector" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1000, 1192 )
-
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 224, 408 )
+
+[node name="RetryDetector" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1000, 1192 )
 [connection signal="body_entered" from="Death/Death" to="Player" method="_on_Death_body_entered"]
 [connection signal="body_entered" from="Death/GroundDeath" to="Player" method="_on_GroundDeath_body_entered"]
 [connection signal="body_entered" from="Death/GroundDeath2" to="Player" method="_on_GroundDeath2_body_entered"]
 [connection signal="body_entered" from="Death/GroundDeath3" to="Player" method="_on_GroundDeath3_body_entered"]
+[connection signal="body_entered" from="RetryDetector" to="Player" method="_on_RetryDetector_body_entered"]

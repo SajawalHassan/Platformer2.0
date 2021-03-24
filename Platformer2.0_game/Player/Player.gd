@@ -25,7 +25,7 @@ func _physics_process(delta) -> void:
 	if is_on_floor():
 		jump_count = 0
 		
-	move_and_slide(motion, UP)
+	motion = move_and_slide(motion, UP)
 
 func _on_Death_body_entered(body: Node) -> void:
 	get_tree().change_scene("res://Gameplay/GameOver.tscn")
