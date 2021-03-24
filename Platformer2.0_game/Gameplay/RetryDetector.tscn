@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1880.33, 56.3284 )
+extents = Vector2( 4188.44, 56.3284 )
 
 [node name="RetryDetector" type="Area2D"]
 

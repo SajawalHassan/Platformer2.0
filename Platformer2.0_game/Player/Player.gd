@@ -9,10 +9,10 @@ func _physics_process(delta) -> void:
 	motion.y += 20
 	
 	if Input.is_action_pressed("move_right"):
-		motion.x = 300
+		motion.x = 400
 		
 	elif Input.is_action_pressed("move_left"):
-		motion.x = -300
+		motion.x = -400
 		
 	else:
 		motion.x = 0
@@ -20,7 +20,7 @@ func _physics_process(delta) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if jump_count < 1:
 			jump_count += 1
-			motion.y = -500
+			motion.y = -550
 
 	if is_on_floor():
 		jump_count = 0
@@ -52,3 +52,4 @@ func _on_GroundDeath2_body_entered(body: Node) -> void:
 
 func _on_GroundDeath3_body_entered(body: Node) -> void:
 	pass # Replace with function body.
+

@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://start-assets/background.png" type="Texture" id=1]
+[ext_resource path="res://start-assets/background-1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Gameplay/RetryDetector.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gameplay/Teleportal.tscn" type="PackedScene" id=4]
@@ -8,11 +8,20 @@
 [ext_resource path="res://Gameplay/GroundDeath.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/titlescreen.jpg-3b66c41a54782ddba28a71317cb41b42.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 438.118, 37.5383 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 7 )
+
+[node name="titlescreen" type="Sprite" parent="."]
+position = Vector2( 1208, 308 )
+scale = Vector2( 5.80192, 6.4186 )
+texture = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 208, 400 )
@@ -31,7 +40,7 @@ scale = Vector2( 0.456207, 0.061105 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Ground"]
 position = Vector2( 1144, 416 )
@@ -46,7 +55,7 @@ scale = Vector2( 0.456207, 0.061105 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D2"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Ground"]
 position = Vector2( 1600, 416 )
@@ -61,7 +70,7 @@ scale = Vector2( 0.456207, 0.061105 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D3"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Ground"]
 position = Vector2( 2360, 352 )
@@ -76,7 +85,7 @@ scale = Vector2( 0.456207, 0.061105 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D4"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Teleportals" type="Node" parent="."]
 
